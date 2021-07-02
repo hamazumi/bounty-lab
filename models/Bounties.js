@@ -1,14 +1,6 @@
 // require mongoose package
 const mongoose = require('mongoose')
 
-let hunterSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        minlength: 2
-    }
-})
-
 //define mongoose schema
 const BountieSchema = new mongoose.Schema({
     name: {
@@ -33,7 +25,10 @@ const BountieSchema = new mongoose.Schema({
     ship: {
         type: String
     },
-    hunters: [hunterSchema],
+    hunters: {
+            type: Array,
+            required: true,
+     },
     captured: {
         type: Boolean,
         //can add a default if nothing added
